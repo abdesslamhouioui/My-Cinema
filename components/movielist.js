@@ -13,9 +13,9 @@ const Movielist = ({movies}) =>{
       <Form.Control type="text" placeholder="Search" className="mr-sm-2" onChange={(e)=>setsearchmov(e.target.value)} />
     </Form>
     <div>
-      <div style={{display:'flex'}}>
+      <div style={{display:'flex',flexWrap:'wrap',justifyContent:'space-between'}}>
         {movies.filter(el=>el.Title.toUpperCase().includes(searchmov.toUpperCase())||el.Rating.includes(searchmov)).map((el)=>(
-        <div style={{margin:'auto',textAlign:'center'}} >
+        <div style={{margin:'auto',textAlign:'center',marginTop:'10px'}} >
     <Card style={{ width: '18rem'}}>
       <a href={el.link}><Card.Img variant="top" src={el.Poster} /></a>
       <Card.Body>

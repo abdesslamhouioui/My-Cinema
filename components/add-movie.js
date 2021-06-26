@@ -1,6 +1,7 @@
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
+import ReactStars from "react-rating-stars-component"
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState } from 'react';
   const Addmovie=({add})=>{
@@ -38,11 +39,11 @@ import { useState } from 'react';
   </Form.Group>
   <Form.Group controlId="formBasicPassword">
     <Form.Label>Rating</Form.Label>
-    <Form.Control type="input" placeholder="Rating"onChange={modify} />
+    <ReactStars  edit={true}isHalf={true} onChange={(value)=>setAddmov({...addmov,Rating:value*2})}/>
   </Form.Group>
   <Form.Group controlId="formBasicPassword">
-    <Form.Label>link</Form.Label>
-    <Form.Control type="input" placeholder="link"onChange={modify}/>
+    <Form.Label>Link</Form.Label>
+    <Form.Control type="input" placeholder="Link"onChange={modify}/>
   </Form.Group>
 </Form>
           </Modal.Body>
@@ -57,4 +58,5 @@ import { useState } from 'react';
         </Modal>
       </>);}
   export default Addmovie;
+  
   

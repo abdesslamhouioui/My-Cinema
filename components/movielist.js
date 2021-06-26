@@ -6,17 +6,19 @@ import { useState } from 'react';
 
 const Movielist = ({movies}) =>{
   const[searchmov,setsearchmov]=useState('')
+  const[searchrating,setsearchrating]=useState('')
     return (
       <>
       <div style={{color:'white',fontSize:'60px',textAlign:'center',}}>Movie App</div>
     <Form inline style={{marginLeft:'43%',marginBottom:'3%',paddingTop:'3%'}}>
       <Form.Control type="text" placeholder="Search" className="mr-sm-2" onChange={(e)=>setsearchmov(e.target.value)} />
+      <ReactStars  edit={true}isHalf={true} onChange={(value)=>setsearchrating(value*2)}/>
     </Form>
     <div>
       <div style={{display:'flex',flexWrap:'wrap',justifyContent:'space-between'}}>
-        {movies.filter(el=>el.Title.toUpperCase().includes(searchmov.toUpperCase())||el.Rating.includes(searchmov)).map((el)=>(
+        {movies.filter(el=>el.Title.toUpperCase().includes(searchmov.toUpperCase())&& el.Rating>=searchrating).map((el)=>(
         <div style={{margin:'auto',textAlign:'center',marginTop:'10px'}} >
-    <Card style={{ width: '18rem'}}>
+    <Card style={{width: '18rem'}}>
       <a href={el.link}><Card.Img variant="top" src={el.Poster} /></a>
       <Card.Body>
         <Card.Title>{el.Title}</Card.Title>

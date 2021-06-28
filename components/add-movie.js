@@ -10,6 +10,7 @@ import { useState } from 'react';
     const handleShow = () => setShow(true);
     const[addmov,setAddmov]=useState({});
     const modify=(event)=>{setAddmov({...addmov,[event.target.placeholder]:event.target.value})}
+    const save=()=>{add(addmov);handleClose()}
     return (
       <>
        <Button variant="primary" onClick={handleShow}style={{marginLeft:'46%',marginBottom:'2%',marginTop:'2%'}} >
@@ -51,12 +52,11 @@ import { useState } from 'react';
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={()=>add(addmov)}>
+            <Button variant="primary" onClick={save}>
               Save
             </Button>
           </Modal.Footer>
         </Modal>
       </>);}
   export default Addmovie;
-  
   
